@@ -1,7 +1,6 @@
 <template>
     <div class="goods">
       <goods-list-item v-for="item in goods" :goods-item="item"/>
-      {{goods}}
     </div>
 </template>
 
@@ -10,13 +9,15 @@
 
   export default {
     name: "GoodsList",
-    comments: {
+    components: {
       GoodsListItem
     },
     props: {
-      type: Array,
-      default() {
-        return []
+      goods: {
+        type: Array,
+        default() {
+          return []
+        }
       }
     }
   }
