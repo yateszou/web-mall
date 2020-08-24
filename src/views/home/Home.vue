@@ -25,6 +25,7 @@
   import BackTop from 'components/content/backTop/BackTop'
 
   import {getHomeMultidata, getHomeGoods} from "network/home";
+  import {debounce} from "common/utils";
 
 
   export default {
@@ -76,13 +77,18 @@
       this.getHomeGoods('sell')
     },
     mounted() {
-      // 1.图片加载完的事件监听
-      this.$refs.aaa
+      // 1.图片加载完成的事件监听
+
+      const refresh = debounce(this.$refs.scroll.refresh, 50)
+      this.$bus.$on('itemImageLoad', () => {
+        refresh()
+      })
     },
     methods: {
       /**
        * 事件监听相关方法
        */
+
       tabClick(index) {
         switch (index) {
           case 0:
@@ -109,14 +115,10 @@
         this.isTabFixed = (-position.y) > this.tabOffsetTop
       },
       loadMore() {
-        // console.log('上拉加载更多');
         this.getHomeGoods(this.currentType)
-
-        this.$refs.scroll.scroll.refresh()
       },
       swiperImageLoad() {
-        // 2.获取tabOffsetTop的offsetTop
-        // 所有组件都有一个属性$el: 用于获取组件中的元素
+        // 2.获取tabControl的offsetTop
         this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop
       },
       /**
@@ -131,10 +133,10 @@
       getHomeGoods(type) {
         const page = this.goods[type].page + 1
         getHomeGoods(type, page).then(res => {
-          // console.log(res);
           this.goods[type].list.push(...res.data.list)
           this.goods[type].page += 1
 
+          // 完成下来加载更多
           this.$refs.scroll.finishPullUp()
         })
       }
