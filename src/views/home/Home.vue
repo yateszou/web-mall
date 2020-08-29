@@ -50,7 +50,7 @@
           'sell': {page: 0, list: []}
         },
         currentType: 'pop',
-        isShowBackTop: true,
+        isShowBackTop: false,
         tabOffsetTop: 0,
         isTabFixed: false,
         saveY: 0
@@ -154,6 +154,7 @@
   .home-nav {
     background-color: var(--color-tint);
     color: #fff;
+    font-size: 14px;
   }
 
   .content {

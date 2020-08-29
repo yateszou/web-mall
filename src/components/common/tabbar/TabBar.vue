@@ -12,6 +12,8 @@
 
 <style scoped>
   #tab-bar {
+    height: 49px;
+
     display: flex;
     background-color: #f6f6f6;
 

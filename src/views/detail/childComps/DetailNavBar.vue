@@ -49,7 +49,13 @@
   .active {
     color: var(--color-high-text)
   }
+  .back {
+    line-height: 44px;
+  }
   .back img {
-    margin-top: 12px;
+    width: 22px;
+    
+    /*margin-top: 12px;*/
+    vertical-align: middle;
   }
 </style>
