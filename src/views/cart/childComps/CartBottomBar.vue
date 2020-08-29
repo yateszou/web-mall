@@ -46,7 +46,7 @@
         // 2.使用find
         // return !this.cartList.find(item => !item.checked)
 
-        // 3.便宜遍历
+        // 3.简易遍历
         for (let item of this.cartList) {
           if (!item.checked) {
             return false
@@ -66,7 +66,10 @@
         // this.cartList.forEach(item => item.checked = !this.isSelectAll())
       },
       calcClick() {
-        if (!this.isSelectAll) {
+        // if (!this.isSelectAll) {
+        //   this.$toast.show('请选择购买的商品', 2000)
+        // }
+        if (this.checkLength == 0) {
           this.$toast.show('请选择购买的商品', 2000)
         }
       }
