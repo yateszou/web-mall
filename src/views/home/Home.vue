@@ -6,7 +6,7 @@
         <home-swiper :banners="banners" @swiperImageLoad="swiperImageLoad"/>
         <recommend-view :recommends="recommends"/>
         <feature-view/>
-        <tab-control :titles="['流行','新款','精选']" @tabClick="tabClick" ref="tabControl2"/>
+        <tab-control :titles="['流行','新款','精选']" @itemClick="tabClick" ref="tabControl2"/>
         <good-list :goods="showGoods"/>
       </scroll>
       <back-top @click.native="backClick" v-show="isShowBackTop"/>
@@ -109,6 +109,7 @@
         this.$refs.scroll.scrollTo(0, 0)
       },
       contentScroll(position) {
+        console.log(position);
         // 1.判断BackTop是否显示
         this.isShowBackTop = (-position.y) > 1000
 
