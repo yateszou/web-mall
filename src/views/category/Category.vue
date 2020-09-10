@@ -5,11 +5,16 @@
       <tab-menu :categories="categories"
                 @selectItem="selectItem"></tab-menu>
       <scroll id="tab-content" :data="[categoryData]" :probe-type="3" @scroll="contentScroll">
-        <div>
+        <tab-control :titles="['综合', '新品', '销量']"
+                     @tabClick="tabClick"
+                     ref="tabControl1"
+                     :class="{'isfixed': isFixed}" v-show="isShow" class="tab-control"></tab-control>
+        <div @swiperImageLoad="swiperImageLoad">
           <tab-content-category :subcategories="showSubcategory"></tab-content-category>
           <tab-control :titles="['综合', '新品', '销量']"
                        @tabClick="tabClick"
-                       ref="tabControl" :class="{'isfixed': isFixed}"></tab-control>
+                       ref="tabControl2"
+                       :class="{'isfixed': isFixed}"></tab-control>
           <tab-content-detail :category-detail="showCategoryDetail"></tab-content-detail>
         </div>
       </scroll>
@@ -47,7 +52,10 @@
         categoryData: {
         },
         currentIndex: -1,
-        isFixed: false
+        isFixed: false,
+        isShow: false,
+        currentType: 'pop',
+        tabOffsetTop: 0
       }
     },
     created() {
@@ -111,10 +119,35 @@
       selectItem(index) {
         this._getSubcategories(index)
       },
+
+      tabClick(index) {
+        switch (index) {
+          case 0:
+            this.currentType = 'pop'
+            break
+          case 1:
+            this.currentType = 'new'
+            break
+          case 2:
+            this.currentType = 'sell'
+            break
+        }
+        this.$refs.tabControl1.currentIndex = index
+        this.$refs.tabControl2.currentIndex = index
+      },
+      swiperImageLoad() {
+        // 2.获取tabControl的offsetTop
+        this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop
+      },
       contentScroll(position) {
-        this.isFixed = (-position.y) > 1133
-        console.log(position)
-        console.log(this.$refs.tabControl.$el.offsetTop);
+        this.isFixed = (-position.y) > this.$refs.tabContro2.$el.offsetTop
+        this.isShow = (-position.y) > this.$refs.tabControl2.$el.offsetTop
+        // console.log(position)
+        console.log(this.$refs.tabControl2.$el.offsetTop);
+      },
+      swiperImageLoad() {
+        // 2.获取tabControl的offsetTop
+        this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop
       }
     }
   }
@@ -150,8 +183,11 @@
   }
 
   .isfixed {
-    /*position: relative;*/
-    /*z-index: 9;*/
-    /*width:100%;*/
+    color: red;
+  }
+
+  .tab-control {
+    position: relative;
+    z-index: 9;
   }
 </style>
