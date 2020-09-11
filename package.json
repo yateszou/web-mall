@@ -10,6 +10,7 @@
     "axios": "^0.19.2",
     "better-scroll": "^1.15.2",
     "core-js": "^3.6.5",
+    "express": "^4.17.1",
     "fastclick": "^1.0.6",
     "vue": "^2.6.11",
     "vue-lazyload": "^1.3.3",
@@ -21,5 +22,17 @@
     "@vue/cli-service": "^4.5.0",
     "postcss-px-to-viewport": "^1.1.1",
     "vue-template-compiler": "^2.6.11"
-  }
+  },
+  "description": "## Project setup ``` npm install ```",
+  "main": "babel.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yateszou/textmall.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yateszou/textmall/issues"
+  },
+  "homepage": "https://github.com/yateszou/textmall#readme"
 }

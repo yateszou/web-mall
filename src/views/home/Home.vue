@@ -109,7 +109,7 @@
         this.$refs.scroll.scrollTo(0, 0)
       },
       contentScroll(position) {
-        console.log(position);
+        // console.log(position);
         // 1.判断BackTop是否显示
         this.isShowBackTop = (-position.y) > 1000
 

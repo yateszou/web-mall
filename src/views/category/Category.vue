@@ -5,11 +5,7 @@
       <tab-menu :categories="categories"
                 @selectItem="selectItem"></tab-menu>
       <scroll id="tab-content" :data="[categoryData]" :probe-type="3" @scroll="contentScroll">
-        <tab-control :titles="['综合', '新品', '销量']"
-                     @tabClick="tabClick"
-                     ref="tabControl1"
-                     :class="{'isfixed': isFixed}" v-show="isShow" class="tab-control"></tab-control>
-        <div @swiperImageLoad="swiperImageLoad">
+        <div>
           <tab-content-category :subcategories="showSubcategory"></tab-content-category>
           <tab-control :titles="['综合', '新品', '销量']"
                        @tabClick="tabClick"
@@ -52,10 +48,10 @@
         categoryData: {
         },
         currentIndex: -1,
-        isFixed: false,
-        isShow: false,
-        currentType: 'pop',
-        tabOffsetTop: 0
+        // isFixed: false,
+        // isShow: false,
+        // currentType: 'pop',
+        // tabOffsetTop: 0
       }
     },
     created() {
@@ -118,37 +114,37 @@
        */
       selectItem(index) {
         this._getSubcategories(index)
-      },
-
-      tabClick(index) {
-        switch (index) {
-          case 0:
-            this.currentType = 'pop'
-            break
-          case 1:
-            this.currentType = 'new'
-            break
-          case 2:
-            this.currentType = 'sell'
-            break
-        }
-        this.$refs.tabControl1.currentIndex = index
-        this.$refs.tabControl2.currentIndex = index
-      },
-      swiperImageLoad() {
-        // 2.获取tabControl的offsetTop
-        this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop
-      },
-      contentScroll(position) {
-        this.isFixed = (-position.y) > this.$refs.tabContro2.$el.offsetTop
-        this.isShow = (-position.y) > this.$refs.tabControl2.$el.offsetTop
-        // console.log(position)
-        console.log(this.$refs.tabControl2.$el.offsetTop);
-      },
-      swiperImageLoad() {
-        // 2.获取tabControl的offsetTop
-        this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop
       }
+
+      // tabClick(index) {
+      //   switch (index) {
+      //     case 0:
+      //       this.currentType = 'pop'
+      //       break
+      //     case 1:
+      //       this.currentType = 'new'
+      //       break
+      //     case 2:
+      //       this.currentType = 'sell'
+      //       break
+      //   }
+      //   this.$refs.tabControl1.currentIndex = index
+      //   this.$refs.tabControl2.currentIndex = index
+      // },
+      // swiperImageLoad() {
+      //   // 2.获取tabControl的offsetTop
+      //   this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop
+      // },
+      // contentScroll(position) {
+      //   this.isFixed = (-position.y) > this.$refs.tabContro2.$el.offsetTop
+      //   this.isShow = (-position.y) > this.$refs.tabControl2.$el.offsetTop
+      //   // console.log(position)
+      //   console.log(this.$refs.tabControl2.$el.offsetTop);
+      // },
+      // swiperImageLoad() {
+      //   // 2.获取tabControl的offsetTop
+      //   this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop
+
     }
   }
 </script>
