@@ -38,6 +38,7 @@
   .item {
     text-align: center;
     font-size: 12px;
+    margin-right: 0px;
   }
 
   .item-img {

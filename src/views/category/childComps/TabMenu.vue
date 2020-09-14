@@ -41,7 +41,7 @@
   #tab-menu {
     background-color: #f6f6f6;
     height: 100%;
-    width: 96px;
+    width: 80px;
     box-sizing: border-box;
   }
 
