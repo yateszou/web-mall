@@ -1,29 +1,15 @@
-# textmall
+# 蘑菇街移动端 web app
 
-## Project setup
-```
-npm install
-```
++ 基于vue开发的一个移动端web app
+![demo](https://s1.ax1x.com/2020/10/09/0BIGDJ.png)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
++ 步骤
+ - 安装依赖：npm install
+ - 运行：npm run serve
+ - 打包：npm run build
 
-### Compiles and minifies for production
-```
-npm run build
-```
++ 如有问题请联系我
+> QQ：[1064219553](http://wpa.qq.com/msgrd?v=3&uin=1064219553&site=qq&menu=yes)  
+> 邮箱：[yates_zou@163.com](mailto:yates_zou@163.com)  
+> 网站：[velpro.cn](https://www.velpro.cn/)
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
