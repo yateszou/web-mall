@@ -6,7 +6,8 @@
 + 步骤
  1. 安装依赖：npm install
  2. 运行：npm run serve
- 3. 打包：npm run build
+ 3. 打包：npm run build  
+> 在线演示：[http://zouyancheng.gitee.io/mogujie-web-app/#/home](http://zouyancheng.gitee.io/mogujie-web-app/#/home)  
 
 + 如有问题请联系我
 > QQ：[1064219553](http://wpa.qq.com/msgrd?v=3&uin=1064219553&site=qq&menu=yes)  
