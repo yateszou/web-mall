@@ -1,7 +1,7 @@
 # 蘑菇街移动端 web app
 
 + 基于vue开发的一个移动端web app
-![demo](https://s1.ax1x.com/2020/10/09/0BIGDJ.png)
+![demo](https://www.velpro.cn/child/project/img/mgmall_bg.png)
 
 + 步骤
  1. 安装依赖：npm install
